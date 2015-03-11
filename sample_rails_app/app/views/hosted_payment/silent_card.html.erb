@@ -1,0 +1,21 @@
+<h1>CardPayment Silent Post 2</h1>
+<% unless @result.nil? %>
+  <pre>
+  <%= YAML::dump(@result) %>
+  </pre>
+<% end %>
+<%= form_tag @session_order.get_link("hosted_payment")[:uri] do %>
+  <%= field_set_tag "Card Details For Order ID: " + @session_order.id do %>
+    <%= render "shared/field", name: :cardNum, default: "4444333322221111" %>
+    <%= render "shared/field", name: :cvdNumber, default: "123" %>
+    <%= content_tag :div, class: "form-group" do %>
+      <%= label_tag :cardExpiryMonth %>
+      <%= select_month Date.today, { field_name: "cardExpiryMonth", use_month_numbers: true }, { class: "form-control" } %>
+    <% end %>
+    <%= content_tag :div, class: "form-group" do %>
+      <%= label_tag :cardExpiryYear %>
+      <%= select_year Date.today, { field_name: "cardExpiryYear" }, { class: "form-control" } %>
+    <% end %>
+  <% end %>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>

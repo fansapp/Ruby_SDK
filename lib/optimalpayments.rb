@@ -1,0 +1,43 @@
+require "optimalpayments/card_payment_service"
+require "optimalpayments/customer_vault_service"
+require "optimalpayments/environment"
+require "optimalpayments/hosted_payment_service"
+require "optimalpayments/json_object"
+require "optimalpayments/optimal_api_client"
+require "optimalpayments/pagerator"
+require "optimalpayments/request"
+
+require "optimalpayments/card_payments/authentication"
+require "optimalpayments/card_payments/authorization"
+require "optimalpayments/card_payments/authorization_reversal"
+require "optimalpayments/card_payments/billing_details"
+require "optimalpayments/card_payments/profile"
+require "optimalpayments/card_payments/refund"
+require "optimalpayments/card_payments/settlement"
+require "optimalpayments/card_payments/shipping_details"
+require "optimalpayments/card_payments/verification"
+
+require "optimalpayments/customer_vault/address"
+require "optimalpayments/customer_vault/card"
+require "optimalpayments/customer_vault/profile"
+
+require "optimalpayments/hosted_payment/billing_details"
+require "optimalpayments/hosted_payment/card"
+require "optimalpayments/hosted_payment/order"
+require "optimalpayments/hosted_payment/refund"
+require "optimalpayments/hosted_payment/settlement"
+require "optimalpayments/hosted_payment/shipping_details"
+require "optimalpayments/hosted_payment/transaction"
+
+require "optimalpayments/errors/optimal"
+require "optimalpayments/errors/api"
+require "optimalpayments/errors/entity_not_found"
+require "optimalpayments/errors/invalid_credentials"
+require "optimalpayments/errors/invalid_request"
+require "optimalpayments/errors/netbanx"
+require "optimalpayments/errors/permission"
+require "optimalpayments/errors/request_conflict"
+require "optimalpayments/errors/request_declined"
+
+module OptimalPayments
+end
