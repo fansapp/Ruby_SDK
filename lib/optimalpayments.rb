@@ -1,4 +1,4 @@
-require "optimalpayments/card_payment_service"
+require_relative "optimalpayments/card_payment_service"
 require "optimalpayments/customer_vault_service"
 require "optimalpayments/environment"
 require "optimalpayments/hosted_payment_service"

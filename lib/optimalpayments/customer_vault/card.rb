@@ -17,6 +17,7 @@ module OptimalPayments
       attr_accessor :error
       attr_accessor :links
       attr_accessor :profileID
+      attr_accessor :singleUseToken
     end
   end
 end

@@ -13,16 +13,31 @@ module OptimalPayments
       @client.process_request(request)[:status] == "READY"
     end
 
+    def create_singleUseToken profile
+      puts "----------coming in create_singleUseToken"
+      request = Request.new(
+        method: Request::POST,
+        uri: prepare_uri("/singleusetokens"),
+        body: profile.get(
+            required = ['card']
+          )
+      )
+
+      @client.process_request request
+    end  
+
     ###########
     # Profile
     ###########
 
     def create_profile profile
+      puts "!!!!!!!!!!!coming in create_profile"
       request = Request.new(
         method: Request::POST,
         uri: prepare_uri("/profiles"),
         body: profile.get(
-            required = ['merchantCustomerId', 'locale']
+            required = ['merchantCustomerId', 'locale', 'singleUseToken']
+            #required = ['merchantCustomerId', 'locale']
           )
       )
 

@@ -33,13 +33,13 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.optimal_account_number = "your-account-number"
-  config.optimal_api_key = "your-key-id"
-  config.optimal_api_secret = "your-key-secret"
+  config.optimal_api_key = "devcentre4651"
+  config.optimal_api_secret = "B-qa2-0-54b5374e-302d02147911306b5c6db4ad74e083803733163195c75ef902150095b4a21a5ea7f4c19b7b37aed1944490b59e785e"
   # The currencyCode should match the currency of your Optimal account. 
   # The currencyBaseUnitsMultipler should in turn match the currencyCode.
   # Since the API accepts only integer values, the currencyBaseUnitMultiplier is used convert the decimal amount into the accepted base units integer value.
-  config.currency_code = "your-account-currency-code" # for example: CAD
-  config.currency_base_units = "currency-base-units-multiplier" # for example: 100
+  config.currency_code = "USD" # for example: CAD
+  config.currency_base_units = "100" # for example: 100
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

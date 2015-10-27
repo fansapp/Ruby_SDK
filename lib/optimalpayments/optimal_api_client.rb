@@ -84,6 +84,7 @@ module OptimalPayments
 
       begin
         json_response = JSON.parse(response.body, {:symbolize_names => true})
+		
       rescue JSON::ParserError
         raise *get_netbanx_exception(response_code, response.body)
       end
