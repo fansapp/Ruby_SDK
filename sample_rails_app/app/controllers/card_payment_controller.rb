@@ -1,3 +1,24 @@
+<<-DOC
+ * Copyright (c) 2016 Paysafe
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+ * associated documentation files (the "Software"), to deal in the Software without restriction,
+ * including without limitation the rights to use, copy, modify, merge, publish, distribute,
+ * sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all copies or
+ * substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
+ * NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ DOC
+
+
+
 require "securerandom"
 require "optimalpayments"
 require "yaml"
@@ -71,7 +92,7 @@ class CardPaymentController < ApplicationController
 
         auth_obj = OptimalPayments::CardPayments::Authorization.new ({
           merchantRefNum: params[:merchant_ref_num],
-          amount: params[:amount].to_i * SampleRailsApp::Application.config.currency_base_units,
+          amount: params[:amount].to_i * SampleRailsApp::Application.config.currency_base_units.to_i,
           settleWithAuth: true,
           card: {
             paymentToken: card.paymentToken
@@ -79,6 +100,7 @@ class CardPaymentController < ApplicationController
         })
         @result = get_client.card_payment_service.authorize auth_obj
       rescue Exception => e
+        puts "Error message = #{e.message}"
         @result = e
       end
     end

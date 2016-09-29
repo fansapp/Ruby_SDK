@@ -1,6 +1,6 @@
 <h1>CardPayment Vault</h1>
 <% unless @result.nil? %>
-  <pre>
+<pre>
   <%= YAML::dump(@result) %>
   </pre>
 <% end %>
@@ -10,8 +10,8 @@
     <%= render "shared/field", name: :first_name %>
     <%= render "shared/field", name: :last_name %>
     <%= render "shared/field", name: :email, default: "test@test.com" %>
-    <%= render "shared/field", name: :street %>
-    <%= render "shared/field", name: :city %>
+    <%= render "shared/field", name: :street, default: "Fairoaks" %>
+    <%= render "shared/field", name: :city, default: "TN"  %>
     <%= render "shared/field", name: :state, label: "State/Province", default: "ON" %>
     <%= content_tag :div, class: "form-group" do %>
       <%= label_tag :country %>
@@ -32,6 +32,10 @@
       <%= label_tag :card_exp_year %>
       <%= select_year Date.today, {}, { class: "form-control" } %>
     <% end %>
+    
   <% end %>
+   
+   
+   
   <%= submit_tag "Submit", class: "btn btn-default" %>
 <% end %>
