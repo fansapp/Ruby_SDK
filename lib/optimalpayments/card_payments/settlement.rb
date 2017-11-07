@@ -14,6 +14,7 @@ module OptimalPayments
       attr_accessor :error
       attr_accessor :links
       attr_accessor :authorizationID
+      attr_accessor :splitpay
 
       def self.get_pageable_array_key
         "settlements"
