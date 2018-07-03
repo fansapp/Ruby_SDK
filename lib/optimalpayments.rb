@@ -37,6 +37,7 @@ require "optimalpayments/card_payments/settlement"
 require "optimalpayments/card_payments/shipping_details"
 require "optimalpayments/card_payments/verification"
 require "optimalpayments/card_payments/split_pay"
+require "optimalpayments/card_payments/store_credential"
 
 require "optimalpayments/customer_vault/address"
 require "optimalpayments/customer_vault/card"
