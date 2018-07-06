@@ -1,6 +1,6 @@
 module OptimalPayments
   module CardPayments
-    class StoreCredential < JsonObject
+    class StoredCredential < JsonObject
       attr_accessor :type
       attr_accessor :occurrence
     end
