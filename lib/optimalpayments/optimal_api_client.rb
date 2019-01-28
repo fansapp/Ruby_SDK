@@ -7,7 +7,8 @@ require 'json'
 
 module OptimalPayments
   class OptimalApiClient
-    API_TEST = "https://api.test.netbanx.com"
+    API_TEST = "https://wiremock-service-dev.golo.io"
+    API_QA = "https://api.test.netbanx.com"
     API_LIVE = "https://api.netbanx.com"
 
     # Merchant's api key
@@ -28,7 +29,7 @@ module OptimalPayments
     attr_accessor :account
 
     def initialize(key_id, key_password, environment=Environment::TEST, account=nil, cert=nil)
-      if environment != Environment::TEST and environment != Environment::LIVE
+      if environment != Environment::TEST and environment != Environment::LIVE and environment != Environment::QA
         raise OptimalError, "Invalid environment specified"
       end
 
@@ -36,7 +37,7 @@ module OptimalPayments
       @key_id = key_id
       @key_password = key_password
       @environment = environment
-      @api_end_point = environment == Environment::TEST ? API_TEST : API_LIVE
+      @api_end_point = get_environment_url(environment)
       @account = account
     end
 
@@ -98,6 +99,17 @@ module OptimalPayments
         raise *get_netbanx_exception(response_code)
       end
       json_response
+    end
+
+    def get_environment_url environment
+      case environment
+        when Environment::TEST
+          API_TEST
+        when Environment::QA
+          API_QA
+        when Environment::LIVE
+          API_LIVE
+      end
     end
 
     def get_netbanx_exception http_code, message="", code=nil, response={}
