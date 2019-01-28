@@ -19,7 +19,8 @@
 
 module OptimalPayments
   class Environment
-    TEST = "OPTIMAL:TEST";
+    TEST = "GOLO:DEV";
+    QA = "OPTIMAL:TEST";
     LIVE = "NETBANX:LIVE";
 
     def initialize
