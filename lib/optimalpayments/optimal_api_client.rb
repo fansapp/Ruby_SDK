@@ -131,11 +131,11 @@ module OptimalPayments
     def get_environment_url environment
         case environment
             when Environment::TEST
-                url = API_TEST
+                API_TEST
             when Environment::QA
-                url = API_QA
+                API_QA
             when Environment::LIVE
-                url = API_LIVE
+                API_LIVE
         end
     end
 
