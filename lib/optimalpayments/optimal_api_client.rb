@@ -129,14 +129,14 @@ module OptimalPayments
     end
 
     def get_environment_url environment
-        case environment
-            when Environment::TEST
-                API_TEST
-            when Environment::QA
-                API_QA
-            when Environment::LIVE
-                API_LIVE
-        end
+      case environment
+        when Environment::TEST
+          API_TEST
+        when Environment::QA
+          API_QA
+        when Environment::LIVE
+          API_LIVE
+      end
     end
 
     def get_netbanx_exception http_code, message="", code=nil, response={}
