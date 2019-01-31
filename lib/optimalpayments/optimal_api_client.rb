@@ -26,7 +26,7 @@ require 'json'
 
 module OptimalPayments
   class OptimalApiClient
-    API_TEST = "https://wiremock-service-dev.golo.io"
+    API_TEST = "http://wiremock-service-dev.golo.io"
     API_QA = "https://api.test.netbanx.com"
     API_LIVE = "https://api.netbanx.com"
 
